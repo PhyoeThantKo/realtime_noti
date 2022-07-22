@@ -7,7 +7,6 @@
      <title>This is admin panel</title>
      <style>
           div {
-               height: 80vh;
                display: grid;
                place-items: center;
           }
@@ -21,12 +20,18 @@
           <h1>You will get notification when someone clicked the button in client side</h1>
      </div>
 
+     <script src="http://code.jquery.com/jquery-3.0.0.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"></script>
      <script src="/socket.io/socket.io.js"></script>
      <script>
           var socket = io()
 
           socket.on('messageSent', (message) => {
-               console.log(message)
+               $.notify("New Message\n" + message.message + "\n\nFrom : " + message.name , {
+                    autoHide: false,
+                    className : "success"
+               })
+
           })
      </script>
 </body>

@@ -14,6 +14,10 @@ app.get('/admin', (req, res) => {
 
 io.on('connection', (socket) => {
      console.log("User : " + socket.id)
+
+     socket.on('messageSent', (message) => {
+          socket.broadcast.emit('messageSent', message)
+     })
 })
 
 httpServer.listen(3000, ()=>{

@@ -24,7 +24,7 @@
      <script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"></script>
      <script src="/socket.io/socket.io.js"></script>
      <script>
-          var socket = io()
+          var socket = io("https://realtimeadminnoti.herokuapp.com/")
 
           socket.on('messageSent', (message) => {
                $.notify("New Message\n" + message.message + "\n\nFrom : " + message.name , {
